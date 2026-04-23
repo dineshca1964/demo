@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Minds - Internal Testing</title>
+    <title>Apex Minds - Instant Analysis Test</title>
     <style>
         body { background-color: #000033; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; }
         .header { text-align: center; padding: 20px; border-bottom: 3px solid #00d4ff; margin-bottom: 30px; }
@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>APEX MINDS: COGNITIVE INTERNAL TEST</h1>
+        <h1>APEX MINDS: INSTANT ANALYSIS DASHBOARD</h1>
     </div>
 
     <div class="dashboard-container">
@@ -36,7 +36,6 @@
     </div>
 
     <script>
-        // CRITICAL: Hardcoded API Key for Internal Testing
         const API_KEY = "AIzaSyCW9Dkzp3a7m6wqPFx-_FnVbWRytWklcA0"; 
         const MODEL = "gemini-3-flash";
 
@@ -57,7 +56,7 @@
             {id: 14, cat: "PERSONAL", name: "Chanakya Niti (2)", link: "https://youtu.be/_lq-HF05C0g"},
             {id: 15, cat: "PERSONAL", name: "Chanakya Niti (3)", link: "https://youtu.be/rXSD8YgRisc"},
             {id: 16, cat: "PERSONAL", name: "Chanakya Niti (4)", link: "https://youtu.be/YoR6_IkNgKk"},
-            {id: 17, cat: "PERSONAL", name: "Napolean Hill (C)", link: "https://youtu.be/5q43Yk2QjJI"},
+            {id: 17, cat: "PERSONAL", name: "Napolean Hill (C)", link: "https://youtu.be/5q433Yk2QjJI"},
             {id: 18, cat: "STUDENT", name: "Vivekananda", link: "https://youtu.be/t7yqtvQXHtI"},
             {id: 19, cat: "STUDENT", name: "Memory-Vivekananda", link: "https://youtu.be/Q5zNAckDRuk"},
             {id: 20, cat: "PERSONAL", name: "Napolean Hill (D)", link: "https://youtu.be/hIg5MQ9VE9k"},
@@ -80,15 +79,15 @@
                         </div>
                     </div>
                     <div class="column">
-                        <textarea id="t-${t.id}" oninput="save(${t.id})" placeholder="Paste transcription..."></textarea>
+                        <textarea id="t-${t.id}" onchange="save(${t.id})" placeholder="Paste transcription..."></textarea>
                         <div class="status" id="st-${t.id}">READY</div>
                     </div>
                     <div class="column">
-                        <textarea id="l-${t.id}" oninput="save(${t.id})" placeholder="Write insights..."></textarea>
+                        <textarea id="l-${t.id}" onchange="save(${t.id})" placeholder="Write insights..."></textarea>
                         <div class="status" id="sl-${t.id}">READY</div>
                     </div>
                     <div class="column">
-                        <div class="action-plan-box" id="p-${t.id}">Awaiting data...</div>
+                        <div class="action-plan-box" id="p-${t.id}">Awaiting input...</div>
                     </div>
                 </div>
             `).join('');
@@ -104,24 +103,21 @@
             document.getElementById('st-' + id).innerText = t.length > 0 ? 'SAVED' : 'READY';
             document.getElementById('sl-' + id).innerText = l.length > 0 ? 'SAVED' : 'READY';
 
-            // Start analysis only when content is substantial
-            if(t.length > 100 && l.length > 20) {
-                // Prevent calling API multiple times while one is in progress
-                if(pBox.innerText.includes("Awaiting") || pBox.innerText.includes("...")) {
-                    pBox.innerHTML = "<em>Analyzing cognitive patterns...</em>";
-                    try {
-                        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                contents: [{ parts: [{ text: `Task: Analyze transcription: "${t}" and insights: "${l}". Provide a one-sentence high-impact nudge for cognitive growth.` }]}]
-                            })
-                        });
-                        const data = await response.json();
-                        pBox.innerHTML = `<strong>Nudge:</strong> ${data.candidates[0].content.parts[0].text}`;
-                    } catch (e) {
-                        pBox.innerHTML = "Analysis paused. Continue writing.";
-                    }
+            // Trigger analysis as soon as both fields have ANY text
+            if(t.trim().length > 0 && l.trim().length > 0) {
+                pBox.innerHTML = "<em>Processing instant analysis...</em>";
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: `Generate a high-impact nudge based on this transcription: "${t}" and user insight: "${l}". Keep it one sentence.` }]}]
+                        })
+                    });
+                    const data = await response.json();
+                    pBox.innerHTML = `<strong>Nudge:</strong> ${data.candidates[0].content.parts[0].text}`;
+                } catch (e) {
+                    pBox.innerHTML = "Error analyzing. Check connection.";
                 }
             }
         }
