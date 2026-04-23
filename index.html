@@ -3,39 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Minds - Secure Dashboard</title>
+    <title>Apex Minds - Internal Testing</title>
     <style>
         body { background-color: #000033; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; }
-        .header { text-align: center; padding: 20px; border-bottom: 3px solid #00d4ff; margin-bottom: 20px; }
+        .header { text-align: center; padding: 20px; border-bottom: 3px solid #00d4ff; margin-bottom: 30px; }
         h1 { color: #00d4ff; text-transform: uppercase; letter-spacing: 2px; margin: 0; }
-        
-        /* Security Header for API Key */
-        .key-mgr { background: #001a4d; padding: 15px; border: 1px solid #00d4ff; border-radius: 8px; margin-bottom: 30px; text-align: center; }
-        .key-mgr input { background: #000b26; color: #00d4ff; border: 1px solid #004080; padding: 8px; width: 350px; border-radius: 4px; margin-right: 10px; }
-        .key-mgr button { background: #00d4ff; color: #000033; border: none; padding: 8px 15px; border-radius: 4px; font-weight: bold; cursor: pointer; }
-
         .dashboard-container { display: flex; flex-direction: column; gap: 20px; max-width: 1650px; margin: 0 auto; }
         .row-header { display: grid; grid-template-columns: 1.2fr 2fr 2fr 1.5fr; gap: 15px; padding: 10px; font-weight: bold; color: #00d4ff; text-transform: uppercase; font-size: 0.8em; border-bottom: 1px solid #004080; }
-        .row-container { display: grid; grid-template-columns: 1.2fr 2fr 2fr 1.5fr; gap: 15px; background-color: #001a4d; padding: 15px; border-radius: 8px; border: 1px solid #004080; align-items: stretch; }
+        .row-container { display: grid; grid-template-columns: 1.2fr 2fr 2fr 1.5fr; gap: 15px; background-color: #001a4d; padding: 15px; border-radius: 8px; border: 1px solid #004080; align-items: stretch; margin-bottom: 10px; }
         .identity-box { background-color: #000b26; padding: 10px; border-radius: 5px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
         .category-tag { font-size: 0.7em; color: #00d4ff; font-weight: bold; }
         .topic-name { font-size: 1em; font-weight: bold; margin: 5px 0; }
         .btn-watch { display: block; background-color: #cc0000; color: white; text-decoration: none; padding: 8px; text-align: center; border-radius: 5px; font-size: 0.85em; font-weight: bold; }
-        textarea { background-color: #000b26; color: #ffffff; border: 1px solid #004080; border-radius: 5px; padding: 10px; resize: vertical; font-family: inherit; min-height: 140px; }
-        .action-plan-box { background-color: #002666; padding: 15px; border-radius: 5px; font-size: 0.9em; height: 140px; overflow-y: auto; border: 1px dashed #004080; color: #00d4ff; }
+        textarea { background-color: #000b26; color: #ffffff; border: 1px solid #004080; border-radius: 5px; padding: 10px; resize: vertical; font-family: inherit; min-height: 140px; width: 100%; box-sizing: border-box; }
+        .action-plan-box { background-color: #002666; padding: 15px; border-radius: 5px; font-size: 0.9em; height: 140px; overflow-y: auto; border: 1px dashed #004080; color: #00d4ff; line-height: 1.4; }
         .status { font-size: 0.65em; color: #00d4ff; margin-top: 5px; }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>DINESH KUMAR'S COGNITIVE DASHBOARD</h1>
-    </div>
-
-    <div class="key-mgr" id="key-section">
-        <label>Enter Gemini API Key for this session:</label>
-        <input type="password" id="api-key-input" placeholder="AIzaSy...">
-        <button onclick="setKey()">Activate Gemini</button>
-        <div id="key-status" style="font-size: 0.7em; margin-top: 5px; color: #aaa;">Key is never stored on GitHub.</div>
+        <h1>APEX MINDS: COGNITIVE INTERNAL TEST</h1>
     </div>
 
     <div class="dashboard-container">
@@ -49,23 +36,38 @@
     </div>
 
     <script>
+        // CRITICAL: Hardcoded API Key for Internal Testing
+        const API_KEY = "AIzaSyCW9Dkzp3a7m6wqPFx-_FnVbWRytWklcA0"; 
+        const MODEL = "gemini-3-flash";
+
         const topics = [
             {id: 1, cat: "STUDENT", name: "Neural Rewire", link: "https://youtu.be/glikujDiQIw"},
+            {id: 2, cat: "STUDENT", name: "Kalam Speech", link: "https://youtu.be/F0pYxK2F30s"},
+            {id: 3, cat: "STUDENT", name: "Kalam Biography", link: "https://youtu.be/LrdrcP2oiyU"},
+            {id: 4, cat: "PERSONAL", name: "Vidur Niti", link: "https://youtube.com/shorts/ebjKzCjg9vE"},
+            {id: 5, cat: "STUDENT", name: "Mindset", link: "https://youtube.com/shorts/S6cqJmrW54g"},
+            {id: 6, cat: "STUDENT", name: "Self Discipline", link: "https://youtube.com/shorts/K_9eu4LH-Dw"},
+            {id: 7, cat: "PERSONAL", name: "Napolean Hill (A)", link: "https://youtu.be/vKlZrTXu6MU"},
+            {id: 8, cat: "PERSONAL", name: "Napolean Hill (B)", link: "https://youtu.be/vKlZrTXu6MU"},
+            {id: 9, cat: "PERSONAL", name: "Secret", link: "https://youtu.be/D0IKwwZkXnM"},
+            {id: 10, cat: "STUDENT", name: "Will Power", link: "https://youtu.be/GL06wdfCyD0"},
+            {id: 11, cat: "STUDENT", name: "Nothing Is Impossible", link: "https://youtu.be/_CM_yqONNHk"},
+            {id: 12, cat: "PERSONAL", name: "Sonu Sharma Stories", link: "https://youtu.be/DBbvK5btNrY"},
+            {id: 13, cat: "PERSONAL", name: "Chanakya Niti (1)", link: "https://youtu.be/H_tZAbm3d_I"},
+            {id: 14, cat: "PERSONAL", name: "Chanakya Niti (2)", link: "https://youtu.be/_lq-HF05C0g"},
+            {id: 15, cat: "PERSONAL", name: "Chanakya Niti (3)", link: "https://youtu.be/rXSD8YgRisc"},
+            {id: 16, cat: "PERSONAL", name: "Chanakya Niti (4)", link: "https://youtu.be/YoR6_IkNgKk"},
+            {id: 17, cat: "PERSONAL", name: "Napolean Hill (C)", link: "https://youtu.be/5q43Yk2QjJI"},
             {id: 18, cat: "STUDENT", name: "Vivekananda", link: "https://youtu.be/t7yqtvQXHtI"},
+            {id: 19, cat: "STUDENT", name: "Memory-Vivekananda", link: "https://youtu.be/Q5zNAckDRuk"},
+            {id: 20, cat: "PERSONAL", name: "Napolean Hill (D)", link: "https://youtu.be/hIg5MQ9VE9k"},
+            {id: 21, cat: "PERSONAL", name: "Getup 4am Napolean", link: "https://youtu.be/l_Ate_0rXGg"},
             {id: 22, cat: "STUDENT", name: "Brainpower", link: "https://youtube.com/shorts/g9p3JQQt11c"},
+            {id: 23, cat: "STUDENT", name: "Habits", link: "https://youtu.be/LklKarA1aKQ"},
+            {id: 24, cat: "STUDENT", name: "Time Management", link: "https://youtu.be/WKfd-CUhDJY"},
+            {id: 25, cat: "STUDENT", name: "Memory Skills", link: "https://youtube.com/shorts/F1OLhdlM2uY"},
             {id: 26, cat: "STUDENT", name: "100 Times Brain", link: "https://youtube.com/shorts/H6v09_641qA"}
-            // ... Add remaining topics here as per your previous list
         ];
-
-        function setKey() {
-            const key = document.getElementById('api-key-input').value;
-            if(key.length > 10) {
-                sessionStorage.setItem('temp_gemini_key', key);
-                document.getElementById('key-section').style.borderColor = "#00ff00";
-                document.getElementById('key-status').innerText = "Gemini Active for this session.";
-                document.getElementById('key-status').style.color = "#00ff00";
-            }
-        }
 
         function renderGrid() {
             const grid = document.getElementById('main-grid');
@@ -86,7 +88,7 @@
                         <div class="status" id="sl-${t.id}">READY</div>
                     </div>
                     <div class="column">
-                        <div class="action-plan-box" id="p-${t.id}">Enter API Key above to enable analysis.</div>
+                        <div class="action-plan-box" id="p-${t.id}">Awaiting data...</div>
                     </div>
                 </div>
             `).join('');
@@ -96,33 +98,29 @@
             const t = document.getElementById('t-' + id).value;
             const l = document.getElementById('l-' + id).value;
             const pBox = document.getElementById('p-' + id);
-            const API_KEY = sessionStorage.getItem('temp_gemini_key');
 
             localStorage.setItem('apex_t_' + id, t);
             localStorage.setItem('apex_l_' + id, l);
             document.getElementById('st-' + id).innerText = t.length > 0 ? 'SAVED' : 'READY';
             document.getElementById('sl-' + id).innerText = l.length > 0 ? 'SAVED' : 'READY';
 
-            if (!API_KEY) {
-                pBox.innerText = "Please enter your API Key at the top.";
-                return;
-            }
-
+            // Start analysis only when content is substantial
             if(t.length > 100 && l.length > 20) {
-                if(pBox.innerText.includes("Enter") || pBox.innerText.includes("Please")) {
-                    pBox.innerHTML = "<em>Gemini is analyzing cognitive patterns...</em>";
+                // Prevent calling API multiple times while one is in progress
+                if(pBox.innerText.includes("Awaiting") || pBox.innerText.includes("...")) {
+                    pBox.innerHTML = "<em>Analyzing cognitive patterns...</em>";
                     try {
-                        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash:generateContent?key=${API_KEY}`, {
+                        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
-                                contents: [{ parts: [{ text: `System: You are an expert Cognitive Architect. Analyze transcription: "${t}" and learning: "${l}". Provide a 1-sentence action nudge.` }]}]
+                                contents: [{ parts: [{ text: `Task: Analyze transcription: "${t}" and insights: "${l}". Provide a one-sentence high-impact nudge for cognitive growth.` }]}]
                             })
                         });
                         const data = await response.json();
                         pBox.innerHTML = `<strong>Nudge:</strong> ${data.candidates[0].content.parts[0].text}`;
                     } catch (e) {
-                        pBox.innerHTML = "<span style='color:red;'>Analysis Failed. Check API Key.</span>";
+                        pBox.innerHTML = "Analysis paused. Continue writing.";
                     }
                 }
             }
@@ -130,12 +128,15 @@
 
         window.onload = function() {
             renderGrid();
-            // Load saved notes from LocalStorage
             topics.forEach(t => {
                 const st = localStorage.getItem('apex_t_' + t.id);
                 const sl = localStorage.getItem('apex_l_' + t.id);
                 if(st) document.getElementById('t-' + t.id).value = st;
                 if(sl) document.getElementById('l-' + t.id).value = sl;
+                if(st || sl) {
+                    document.getElementById('st-' + t.id).innerText = 'SAVED';
+                    document.getElementById('sl-' + t.id).innerText = 'SAVED';
+                }
             });
         }
     </script>
