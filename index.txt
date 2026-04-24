@@ -55,7 +55,7 @@
 
     <header>
         <div class="container">
-            <img src="logo.jpg" alt="Apex Minds Logo" class="logo">
+            <img src="FINAL LOGO.jpg" alt="Apex Minds Logo" class="logo">
             <h1>APEX MINDS</h1>
             <div class="tagline">BUILD YOUR BRAIN BANK</div>
         </div>
