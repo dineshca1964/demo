@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Minds | Merit Architecture</title>
+    <style>
+        :root { --gold: #D4AF37; --amber: #FFBF00; --emerald: #50C878; --dark: #000000; --panel: #1a1a1a; --text: #f4f4f4; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--dark); color: var(--text); line-height: 1.6; }
+        .container { width: 90%; margin: auto; }
+        .ticker { background: var(--gold); color: black; padding: 12px 0; font-weight: bold; text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+        header { padding: 30px 0; text-align: center; border-bottom: 2px solid var(--gold); }
+        .logo { max-width: 180px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 15px; }
+        h1 { color: var(--gold); letter-spacing: 4px; margin: 0; }
+        .contact-bar { background: #111; padding: 20px 0; border-bottom: 1px solid #333; font-size: 0.8rem; }
+        .branch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: center; }
+        .page-toggle { text-align: center; margin: 30px 0; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .btn { padding: 12px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; cursor: pointer; border: 2px solid var(--gold); background: transparent; color: var(--text); }
+        .btn.active { background: var(--gold); color: black; }
+        .btn-emerald { border-color: var(--emerald); color: var(--emerald); }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        .grid-item { background: var(--panel); border: 1px solid #333; padding: 25px 10px; text-align: center; border-radius: 8px; text-decoration: none; color: var(--gold); font-weight: bold; }
+        .instruction-card { background: var(--panel); padding: 30px; border-radius: 10px; border: 1px solid #333; max-width: 850px; margin: auto; }
+        .hidden { display: none; }
+        .content-block { background: #0c0c0c; border: 1px solid var(--gold); padding: 25px; margin: 20px 0; border-radius: 8px; }
+        .content-block h3 { color: var(--gold); margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .fee-badge { background: #331a00; color: var(--amber); border: 1px solid var(--amber); padding: 4px 10px; border-radius: 4px; font-weight: bold; }
+        footer { text-align: center; padding: 30px; color: #666; font-size: 0.8rem; border-top: 1px solid #222; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; color: #ccc; font-size: 0.9rem; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: left; }
+        th { background: #1a1a1a; color: var(--gold); }
+    </style>
+</head>
+<body>
+
+<div class="ticker">World Record Attempt — 29 Days of Discipline</div>
+
+<header>
+    <div class="container">
+        <img src="logo.png" alt="Apex Minds Logo" class="logo">
+        <h1>APEX MINDS</h1>
+        <p style="color:var(--amber)">Merit Architecture for 7th to 12th Standard Students</p>
+    </div>
+</header>
+
+<div class="contact-bar">
+    <div class="container">
+        <div class="branch-grid">
+            <div><strong>Head Office</strong><br>Sector 21, Navi Mumbai</div>
+            <div><strong>Punjabi Bagh</strong><br>New Delhi Hub</div>
+            <div><strong>Rohini</strong><br>Sec 23, Delhi</div>
+            <div><strong>New Ashok Nagar</strong><br>A 253, New Delhi</div>
+        </div>
+    </div>
+</div>
+
+<div class="container page-toggle">
+    <button id="nav1" class="btn active" onclick="showPage(1)">1. Study Grid</button>
+    <button id="nav2" class="btn" onclick="showPage(2)">2. Instructions & Journal Format</button>
+    <button id="nav3" class="btn btn-emerald" onclick="showPage(3)">3. Meditation</button>
+</div>
+
+<section id="page1" class="container">
+    <div class="grid-container">
+        <a href="https://www.youtube.com/watch?v=_l4xZLssfUY" class="grid-item" target="_blank">Day 01</a>
+        <a href="https://www.youtube.com/watch?v=L_2JaFnkZ4o" class="grid-item" target="_blank">Day 02</a>
+        <a href="https://www.youtube.com/watch?v=w5VUZGlDsPA" class="grid-item" target="_blank">Day 03</a>
+        <a href="https://www.youtube.com/watch?v=bbd5wfsLo9s" class="grid-item" target="_blank">Day 04</a>
+        <a href="https://www.youtube.com/watch?v=eVajQPuRmk8" class="grid-item" target="_blank">Day 05</a>
+        <a href="https://www.youtube.com/watch?v=t7yqtvQXHtI" class="grid-item" target="_blank">Day 06</a>
+        <a href="https://www.youtube.com/watch?v=b1j77lznsH8" class="grid-item" target="_blank">Day 07</a>
+        <a href="https://www.youtube.com/watch?v=fOKZolUpg1s" class="grid-item" target="_blank">Day 08</a>
+        <a href="https://www.youtube.com/watch?v=WKfd-CUhDJY" class="grid-item" target="_blank">Day 09</a>
+        <a href="https://www.youtube.com/watch?v=glikujDiQIw" class="grid-item" target="_blank">Day 10</a>
+        <a href="https://www.youtube.com/watch?v=F0pYxK2F30s" class="grid-item" target="_blank">Day 11</a>
+        <a href="https://www.youtube.com/watch?v=LrdrcP2oiyU" class="grid-item" target="_blank">Day 12</a>
+        <a href="https://www.youtube.com/watch?v=_CM_yqONNHk" class="grid-item" target="_blank">Day 13</a>
+        <a href="https://youtu.be/Q5zNAckDRuk" class="grid-item" target="_blank">Day 14</a>
+        <a href="https://www.youtube.com/watch?v=GL06wdfCyD0" class="grid-item" target="_blank">Day 15</a>
+        <a href="https://www.youtube.com/watch?v=LklKarA1aKQ" class="grid-item" target="_blank">Day 16</a>
+        <a href="https://youtu.be/LrdrcP2oiyU" class="grid-item" target="_blank">Day 17</a>
+        <a href="https://youtu.be/F0pYxK2F30s" class="grid-item" target="_blank">Day 18</a>
+        <a href="https://youtu.be/_CM_yqONNHk" class="grid-item" target="_blank">Day 19</a>
+        <a href="https://youtu.be/t7yqtvQXHtI" class="grid-item" target="_blank">Day 20</a>
+        <a href="https://youtu.be/glikujDiQIw" class="grid-item" target="_blank">Day 21</a>
+        <a href="https://youtu.be/GL06wdfCyD0" class="grid-item" target="_blank">Day 22</a>
+        <a href="https://youtu.be/LklKarA1aKQ" class="grid-item" target="_blank">Day 23</a>
+        <a href="https://youtu.be/Q5zNAckDRuk" class="grid-item" target="_blank">Day 24</a>
+        <a href="https://youtu.be/WKfd-CUhDJY" class="grid-item" target="_blank">Day 25</a>
+        <a href="https://youtu.be/LrdrcP2oiyU" class="grid-item" target="_blank">Day 26</a>
+        <a href="https://youtu.be/F0pYxK2F30s" class="grid-item" target="_blank">Day 27</a>
+        <a href="#" class="grid-item">Day 28</a>
+        <a href="#" class="grid-item">Day 29</a>
+    </div>
+</section>
+
+<section id="page2" class="container hidden">
+    <div class="instruction-card">
+        <h2 style="color:var(--gold)">The Sequence of Success</h2>
+        <p>Follow these steps to complete your Merit Architecture:</p>
+        
+        <ol>
+            <li>Watch one video daily from the <strong>Study Grid</strong>.</li>
+            <li>Maintain your daily entries using the <strong>Merit Journal Format</strong> below.</li>
+            <li>Complete the <strong>Permanent Habit Profile</strong> questions.</li>
+            <li>On Day 30, email your completed work to <strong>apexminds1964@gmail.com</strong>.</li>
+            <li>Visit your nearest Hub with your Aadhaar Card for verification.</li>
+            <li><strong>Professional Fee: <span class="fee-badge">₹200 Cash at Hub</span></strong> for system entry and your Monthly Action Plan.</li>
+        </ol>
+
+        <div class="content-block">
+            <h3>Part 1: Merit Journal Format</h3>
+            <p>Prepare your journal (Physical or Digital) with these four columns:</p>
+            <table>
+                <tr><th>Day No.</th><th>Date</th><th>Core Logic (The "Secret")</th><th>Syllabus Application</th></tr>
+                <tr><td>Day 1</td><td>...</td><td>...</td><td>...</td></tr>
+            </table>
+        </div>
+
+        <div class="content-block">
+            <h3>Part 2: Permanent Habit Profile</h3>
+            <p>Answer these 5 questions at the end of your 29-day cycle:</p>
+            <ol>
+                <li><strong>Daily Routine:</strong> What is your exact start time for the first Merit session?</li>
+                <li><strong>Sustained Focus:</strong> Average minutes spent per video (including analysis)?</li>
+                <li><strong>Medium:</strong> Do you use digital typing or handwritten notes?</li>
+                <li><strong>Goal:</strong> Focus for next month (Memory / Speed / Logic)?</li>
+                <li><strong>Distraction Audit:</strong> On a scale of 1-10, how high is your phone distraction?</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="page3" class="container hidden">
+    <div class="instruction-card" style="border-color:var(--emerald); text-align:center;">
+        <h2 style="color:var(--emerald)">17-Min Cell Glow Meditation</h2>
+        <p>Listen daily before study to enhance concentration and memory.</p>
+        <a href="https://drive.google.com/uc?export=download&id=1qleoVDPpRxgwjZa3yftsb_KeM2ipaHzG" class="btn btn-emerald" style="padding: 15px 30px; border-radius: 5px;">DOWNLOAD AUDIO</a>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Apex Minds | Founded by Dinesh Kumar, CA | apexminds1964@gmail.com
+</footer>
+
+<script>
+    function showPage(p) {
+        document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+        document.querySelectorAll('.page-toggle .btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('page' + p).classList.remove('hidden');
+        document.getElementById('nav' + p).classList.add('active');
+        window.scrollTo(0,0);
+    }
+</script>
+</body>
+</html>
