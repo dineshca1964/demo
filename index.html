@@ -16,17 +16,16 @@
         .page-toggle { text-align: center; margin: 30px 0; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .btn { padding: 12px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; cursor: pointer; border: 2px solid var(--gold); background: transparent; color: var(--text); text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
         .btn.active { background: var(--gold); color: black; }
-        .btn-teacher { border-color: var(--amber); color: var(--amber); }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
         .grid-item { background: var(--panel); border: 1px solid #333; padding: 20px 10px; text-align: center; border-radius: 8px; text-decoration: none; color: var(--gold); font-weight: bold; }
         .instruction-card { background: var(--panel); padding: 40px; border-radius: 10px; border: 1px solid #333; max-width: 1000px; margin: 20px auto; }
-        .content-block { background: #0c0c0c; border: 1px solid var(--gold); padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center; }
-        .content-block h3 { color: var(--gold); margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px; min-height: 50px; }
         .hidden { display: none; }
+        .more-content { display: none; }
+        .toggle-link { color: var(--gold); cursor: pointer; font-weight: bold; text-decoration: underline; display: block; margin-top: 15px; }
         table { width: 100%; border-collapse: collapse; margin-top: 25px; color: #ccc; }
         th, td { border: 1px solid #333; padding: 15px; text-align: left; }
         th { background: #1a1a1a; color: var(--gold); text-transform: uppercase; font-size: 0.9rem; }
-        .equilibrium-box { border-left: 5px solid var(--red); padding: 30px; background: #0a0a0a; margin: 30px 0; border-radius: 0 10px 10px 0; line-height: 2; }
+        .equilibrium-box { border-left: 5px solid var(--red); padding: 30px; background: #0a0a0a; margin: 30px 0; border-radius: 0 10px 10px 0; }
         .registration-form { background: var(--panel); padding: 30px; border-radius: 8px; border: 1px solid var(--amber); margin-top: 30px; }
         .form-group { margin-bottom: 20px; text-align: left; }
         label { display: block; color: var(--gold); margin-bottom: 8px; font-weight: bold; }
@@ -34,8 +33,6 @@
         .submit-btn { background: var(--gold); color: black; border: none; padding: 15px; width: 100%; font-weight: bold; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
         .counter-box { background: #111; border: 1px solid var(--gold); padding: 10px; display: inline-block; margin-top: 20px; border-radius: 5px; color: var(--gold); font-family: monospace; }
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.8rem; border-top: 1px solid #222; margin-top: 50px; }
-        .pillar-row { display: flex; gap: 15px; margin-top: 20px; }
-        .pillar-card { background: #1a1a1a; border: 1px solid var(--gold); padding: 15px; border-radius: 5px; color: var(--gold); font-weight: bold; text-align: center; flex: 1; }
     </style>
 </head>
 <body>
@@ -61,9 +58,10 @@
 
 <div class="container page-toggle">
     <button id="nav1" class="btn active" onclick="showPage(1)">1. Study Grid</button>
-    <button id="nav2" class="btn" onclick="showPage(2)">2. Strategic Mission & Registration</button>
-    <button id="nav3" class="btn" style="border-color:var(--emerald); color:var(--emerald);" onclick="showPage(3)">3. Meditation</button>
-    <button id="nav4" class="btn btn-teacher" onclick="checkTeacherPassword()">TEACHERS PORTAL</button>
+    <button id="nav2" class="btn" onclick="showPage(2)">2. Instructions & Benefits</button>
+    <button id="nav3" class="btn" onclick="showPage(3)">3. Strategic Mission & Registration</button>
+    <button id="nav4" class="btn" style="border-color:var(--emerald); color:var(--emerald);" onclick="showPage(4)">4. Meditation</button>
+    <button id="nav5" class="btn" style="border-color:var(--amber); color:var(--amber);" onclick="checkTeacherPassword()">5. TEACHERS PORTAL</button>
 </div>
 
 <section id="page1" class="container">
@@ -102,18 +100,52 @@
 
 <section id="page2" class="container hidden">
     <div class="instruction-card">
+        <h2 style="color:var(--gold)">Welcome to the “Path to Merit” program</h2>
+        <p><strong style="color:var(--amber)">IMPORTANT NOTE:</strong> This is a self-improvement and learning engagement program. Results depend on regular participation, discipline, and sincere effort.</p>
+        
+        <h3 style="color:var(--gold)">STUDENT DAILY RULES</h3>
+        <ul style="text-align: left;">
+            <li>Watch the session daily.</li>
+            <li>Sit calmly and avoid distractions.</li>
+            <li>Use headphones if possible.</li>
+            <li>Follow the action task honestly.</li>
+            <li>Maintain positive thinking.</li>
+        </ul>
+
+        <div id="extraContent" class="more-content" style="text-align: left;">
+            <ul>
+                <li>Reduce unnecessary mobile distraction.</li>
+                <li>Sleep properly and study regularly.</li>
+            </ul>
+            
+            <h3 style="color:var(--gold)">HOW THE PROGRAM WORKS</h3>
+            <ol>
+                <li>Every day you will watch a short guided visual session.</li>
+                <li>Each session may include focus visuals, concentration exercises, and motivational guidance.</li>
+                <li>Duration: Only 10-15 minutes daily.</li>
+                <li>After watching: Reflect for 1 minute and follow the daily action.</li>
+                <li>AI-supported progress tracking helps create your personalized plan.</li>
+                <li>Consistency is more important than perfection.</li>
+                <li>Small daily improvement creates major long-term success.</li>
+            </ol>
+
+            <h3 style="color:var(--gold)">EXPECTED BENEFITS</h3>
+            <ul>
+                <li>Study concentration & Memory discipline</li>
+                <li>Attention span & Exam confidence</li>
+                <li>Emotional balance & Study consistency</li>
+                <li>Goal awareness & Classroom participation</li>
+            </ul>
+        </div>
+        <span class="toggle-link" id="toggleBtn" onclick="toggleInstructions()">Read More...</span>
+    </div>
+</section>
+
+<section id="page3" class="container hidden">
+    <div class="instruction-card">
         <h2 style="color:var(--gold)">PART A: STRATEGIC MISSION & STUDENT ASSIGNMENT BRIEF</h2>
         <div style="text-align: left;">
             <p>This initiative represents a specialized assignment designed to upgrade the mental hardware of primary and middle school students. In the competitive academic landscapes of Delhi and Chandigarh, Apex Minds is shifting the focus from traditional rote learning to a high-velocity logical processing model. We view the student’s mind as an engine that requires precise tuning rather than a storage unit for facts. By participating in this program, students are not just studying; they are engaging in a strategic mission to decode the source code of competitive success.</p>
-            
-            <p>Our offline programs in <strong>Delhi</strong> are strategically targeted toward schools like MCD Pratibha Vidyalaya to ensure early-stage strategic literacy. For Class 5 students, the assignment involves mastering the specific reasoning patterns required for the <strong>JNV, Medhavi, and Vidya Gyan</strong> residential school entrance formats. We provide the tools necessary to bridge the gap between standard school books and the rigorous logical requirements of national-level competitions.</p>
-            
-            <p>In <strong>Chandigarh</strong>, the mission focuses on <strong>Navodaya School Entry</strong> for both Class 5 and Class 9 students at institutions such as G.M.H.S 46. The core of this assignment is the absolute mastery of <strong>Mental Ability (MAT)</strong>. We teach students how to treat reasoning puzzles as mathematical variables, allowing them to solve complex problems with unprecedented speed and accuracy. This ensures that the students from these regions stand out as logically superior candidates in any selection process.</p>
-            
-            <div class="pillar-row">
-                <div class="pillar-card">Pillar 1: Logic of Elimination</div>
-                <div class="pillar-card">Pillar 2: Mathematical Velocity</div>
-            </div>
         </div>
         
         <div class="registration-form">
@@ -128,47 +160,31 @@
     </div>
 </section>
 
-<section id="page3" class="container hidden">
+<section id="page4" class="container hidden">
     <div class="instruction-card" style="text-align:center; border-color:var(--emerald);">
         <h2 style="color:var(--emerald)">17-Min Cell Glow Meditation</h2>
         <a href="https://drive.google.com/uc?export=download&id=1qleoVDPpRxgwjZa3yftsb_KeM2ipaHzG" class="btn" style="border-color:var(--emerald); color:var(--emerald);">Download Audio</a>
     </div>
 </section>
 
-<section id="page4" class="container hidden">
+<section id="page5" class="container hidden">
     <div class="instruction-card">
-        <h2 style="color:var(--gold)">Educator Equilibrium & Inspiration Portal</h2>
-        
+        <h2 style="color:var(--gold)">Educator Equilibrium Portal</h2>
         <div class="equilibrium-box" style="text-align: left;">
-            <h3 style="color:var(--gold)">The Professional-Personal Firewall</h3>
-            <p>The classroom is a sanctuary where a teacher’s professional integrity must remain shielded from personal stressors. Maintaining this balance requires deep <strong>Introspection</strong>. A teacher who is preoccupied with personal variables cannot act as a clear "Source" for student inspiration. To be an effective guide, the educator must first audit their own mental state to ensure their energy is directed toward the students' growth.</p>
-            <p>This strategic compartmentalization ensures that <strong>if there is an issue in the personal life of a teacher, their professional life does not suffer.</strong> By mastering the balance between personal noise and professional duty, educators earn the logical right to lead and inspire the next generation.</p>
+            <p>The classroom is a sanctuary where a teacher’s professional integrity must remain shielded from personal stressors. Maintaining this balance requires deep <strong>Introspection</strong>.</p>
         </div>
-
-        <h3 style="color:var(--gold)">Teacher Introspection Action Plan</h3>
         <table>
             <thead><tr><th>Introspection Question</th><th>Strategic Goal</th></tr></thead>
             <tbody style="text-align: left;">
-                <tr><td>Am I currently projecting personal "noise" onto my students, or am I acting as a clear channel for logic and motivation?</td><td>To maintain a clean logical slate for the student's learning environment.</td></tr>
-                <tr><td>What specific action did I take today that served as a direct source of inspiration for a struggling learner?</td><td>To move from being a mere instructor to becoming a strategic mentor.</td></tr>
-                <tr><td>If my personal life is in a state of flux, have I consciously engaged my "Professional Firewall" to protect the classroom's logical flow?</td><td>To ensure professional performance is independent of personal variables.</td></tr>
-                <tr><td>How can I simplify my administrative tasks to create more mental space for creative, inspiring teaching?</td><td>To use velocity to reduce burnout and increase energy.</td></tr>
+                <tr><td>Am I projecting personal "noise" onto my students?</td><td>Maintain a clean logical slate.</td></tr>
             </tbody>
         </table>
-
-        <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 40px;">
-            <div class="content-block"><h3>1. Classroom Management</h3><a href="https://www.youtube.com/watch?v=u8kUwpO3ucw" class="btn" target="_blank">ACCESS</a></div>
-            <div class="content-block"><h3>2. Active Learning</h3><a href="https://www.youtube.com/watch?v=caI8qHRGtmA" class="btn" target="_blank">ACCESS</a></div>
-            <div class="content-block"><h3>3. Admin Efficiency</h3><a href="https://www.youtube.com/watch?v=GL06wdfCyD0" class="btn" target="_blank">ACCESS</a></div>
-            <div class="content-block"><h3>4. Parent Bonding</h3><a href="https://www.youtube.com/watch?v=fOKZolUpg1s" class="btn" target="_blank">ACCESS</a></div>
-            <div class="content-block"><h3>5. Resourcefulness</h3><a href="https://www.youtube.com/watch?v=WKfd-CUhDJY" class="btn" target="_blank">ACCESS</a></div>
-        </div>
     </div>
 </section>
 
 <footer>
     <div class="counter-box">Visitor Count: <span id="countDisplay">0000</span></div><br><br>
-    &copy; 2026 Apex Minds | Founded by Dinesh Kumar, CA | Govt. Boys Senior Secondary School, New Ashok Nagar, Delhi
+    &copy; 2026 Apex Minds | Founded by Dinesh Kumar, CA | GBSSS, New Ashok Nagar, Delhi
 </footer>
 
 <script>
@@ -183,13 +199,25 @@
     function checkTeacherPassword() {
         const password = prompt("Enter Teacher Access Password:");
         if (password === "NAN@123") {
-            showPage(4);
+            showPage(5);
         } else {
             alert("Invalid Password. Access Denied.");
         }
     }
 
-    let visitorCount = localStorage.getItem('apexVisitorCount') || 0;
+    function toggleInstructions() {
+        const extra = document.getElementById("extraContent");
+        const btn = document.getElementById("toggleBtn");
+        if (extra.style.display === "block") {
+            extra.style.display = "none";
+            btn.innerText = "Read More...";
+        } else {
+            extra.style.display = "block";
+            btn.innerText = "Read Less";
+        }
+    }
+
+    let visitorCount = localStorage.getItem('apexVisitorCount') || 102;
     visitorCount = parseInt(visitorCount) + 1;
     localStorage.setItem('apexVisitorCount', visitorCount);
     document.getElementById('countDisplay').innerText = visitorCount.toString().padStart(4, '0');
